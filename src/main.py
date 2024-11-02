@@ -44,6 +44,15 @@ if __name__ == "__main__":
     scanner.scan()
     logger.info("Log scanning ends")
 
+    # Проверка наличия файлов логов и моделей
+    if not scanner.get_log_files():
+        logger.error("No log files found. Exiting.")
+        exit(1)
+    
+    if not scanner.get_models():
+        logger.error("No models found. Exiting.")
+        exit(1)
+
     preproccessor = Preprocessor(logger=logger)
     predictor = Predictor(
         scanner=scanner,
