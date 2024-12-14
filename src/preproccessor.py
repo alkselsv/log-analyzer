@@ -180,7 +180,7 @@ class Preprocessor:
                             mousemove_prm_data["u2"]["gr"][0]
                         )
 
-        res["ua"] = uas[0]
+        res["ua"] = uas[0] if uas else ""
         res["ip"] = ips[0]
         res["timestamp"] = timestamps[0]
 
